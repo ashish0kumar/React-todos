@@ -12,7 +12,7 @@ export default function TodoItem({ todo, remove, toggle }) {
     return (
         <ListItem
             sx={{
-                width: 320,
+                width: 300,
                 backgroundColor: "#f5f5f5",
                 mx: "auto",
                 mb: 1.5,

@@ -22,7 +22,7 @@ export default function TodoForm({ addTodo }) {
             <form onSubmit={handleSubmit}>
                 <TextField
                     sx={{
-                        width: 320,
+                        width: 300,
                         mb: 1,
                     }}
                     id="outlined-basic"
