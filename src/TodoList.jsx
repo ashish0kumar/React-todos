@@ -37,7 +37,8 @@ export default function TodoList() {
 
     const addTodo = (text) => {
         setTodos((prevTodos) => {
-            return [...prevTodos, { text: text, id: crypto.randomUUID(), completed: false }];
+            if (text) return [...prevTodos, { text: text, id: crypto.randomUUID(), completed: false }];
+            return [...prevTodos];
         });
     }
 
