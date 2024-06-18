@@ -15,7 +15,7 @@ export default function TodoList() {
 
     const removeTodo = (id) => {
         setTodos((prevTodos) => {
-            prevTodos.filter(t => t.id !== id);
+            return prevTodos.filter(t => t.id !== id);
         });
     }
 
@@ -25,7 +25,7 @@ export default function TodoList() {
                 <TodoItem
                     todo={todo} 
                     key={todo.id} 
-                    removeTodo={() => removeTodo(todo.id)} 
+                    remove={() => removeTodo(todo.id)} 
                 />
             ))}
         </List>
