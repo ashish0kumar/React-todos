@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import List from '@mui/material/List';
 import TodoItem from './TodoItem';
 import TodoForm from './TodoForm';
+import { Box, Typography } from '@mui/material';
 
 const getInitialData = () => {
     const data = JSON.parse(localStorage.getItem("todos"));
@@ -36,22 +37,35 @@ export default function TodoList() {
 
     const addTodo = (text) => {
         setTodos((prevTodos) => {
-            return [...prevTodos, {text: text, id: crypto.randomUUID(), completed: false}];
+            return [...prevTodos, { text: text, id: crypto.randomUUID(), completed: false }];
         });
     }
 
     return (
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-            {todos.map(todo => (
-                <TodoItem
-                    todo={todo}
-                    key={todo.id}
-                    remove={() => removeTodo(todo.id)}
-                    toggle={() => toggleTodo(todo.id)} 
-                />
-            ))}
+        <Box
+            sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+            }}
+        >
+            <Typography variant='h2' component="h1" sx={{flexGrow: 1, mt: 6, mb: 2}}>
+                Todos
+            </Typography>
 
-            <TodoForm addTodo={addTodo} />
-        </List>
+            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                {todos.map(todo => (
+                    <TodoItem
+                        todo={todo}
+                        key={todo.id}
+                        remove={() => removeTodo(todo.id)}
+                        toggle={() => toggleTodo(todo.id)}
+                    />
+                ))}
+
+                <TodoForm addTodo={addTodo} />
+            </List>
+        </Box>
     )
 }
