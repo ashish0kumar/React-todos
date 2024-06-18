@@ -1,6 +1,6 @@
 import { IconButton, ListItem } from "@mui/material";
 import { TextField } from "@mui/material";
-import { Create } from "@mui/icons-material";
+import { Add } from "@mui/icons-material";
 import { InputAdornment } from "@mui/material";
 import { useState } from "react";
 
@@ -21,9 +21,12 @@ export default function TodoForm({ addTodo }) {
         <ListItem>
             <form onSubmit={handleSubmit}>
                 <TextField
-                    sx={{width: 330}}
+                    sx={{
+                        width: 320,
+                        mb: 1,
+                    }}
                     id="outlined-basic"
-                    label="Add Todo"
+                    label="Add a new todo"
                     variant="outlined"
                     value={text}
                     onChange={handleChange}
@@ -31,7 +34,7 @@ export default function TodoForm({ addTodo }) {
                         endAdornment: (
                             <InputAdornment position="end">
                                 <IconButton aria-label="add todo" edge="end" type="submit">
-                                    <Create />
+                                    <Add />
                                 </IconButton>
                             </InputAdornment>
                         ),

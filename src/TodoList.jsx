@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import List from '@mui/material/List';
 import TodoItem from './TodoItem';
 import TodoForm from './TodoForm';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 const getInitialData = () => {
     const data = JSON.parse(localStorage.getItem("todos"));
@@ -48,11 +48,18 @@ export default function TodoList() {
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
+                width: "fit-content",
+                mx: "auto",
+                my: 10,
+                px: 2,
+                py: 3,
+                backgroundColor: "white",
+                borderRadius: 3,
+                boxShadow: 3
             }}
         >
-            <Typography variant='h2' component="h1" sx={{flexGrow: 1, mt: 6, mb: 2}}>
-                Todos
-            </Typography>
+
+            <TodoForm addTodo={addTodo} />
 
             <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                 {todos.map(todo => (
@@ -63,8 +70,6 @@ export default function TodoList() {
                         toggle={() => toggleTodo(todo.id)}
                     />
                 ))}
-
-                <TodoForm addTodo={addTodo} />
             </List>
         </Box>
     )

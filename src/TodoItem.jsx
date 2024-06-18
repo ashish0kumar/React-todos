@@ -11,9 +11,16 @@ export default function TodoItem({ todo, remove, toggle }) {
 
     return (
         <ListItem
+            sx={{
+                width: 320,
+                backgroundColor: "#f5f5f5",
+                mx: "auto",
+                mb: 1.5,
+                borderRadius: 2
+            }}
             key={todo.id}
             secondaryAction={
-                <IconButton edge="end" aria-label="comments" onClick={remove}>
+                <IconButton edge="end" aria-label="remove" onClick={remove}>
                     <ClearIcon />
                 </IconButton>
             }
@@ -30,7 +37,10 @@ export default function TodoItem({ todo, remove, toggle }) {
                         onChange={toggle}
                     />
                 </ListItemIcon>
-                <ListItemText id={labelId} primary={todo.text} />
+                <ListItemText
+                    id={labelId} 
+                    primary={todo.text} 
+                />
             </ListItemButton>
         </ListItem>
     );
