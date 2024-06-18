@@ -1,2 +1,2 @@
 # React-todos
-Minimalist todo app built using react and material ui
+Minimalist todo app built using reactjs and material ui
